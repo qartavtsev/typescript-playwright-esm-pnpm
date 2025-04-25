@@ -3,9 +3,9 @@ name: ato-typescript-playwright-esm-pnpm
 
 # Pipeline execution rules
 on:
-  # schedule:                        # Run pipeline when triggered by a scheduled event
-  #   - cron: '0 0 */3 * *'          # Run pipeline every 3rd day at midnight UTC
-  workflow_dispatch:                 # Run pipeline when triggered manually from the web UI
+  # schedule:                        # Run the pipeline when triggered by a scheduled event
+  #   - cron: '0 0 */3 * *'          # Run the pipeline every 3rd day at midnight UTC
+  workflow_dispatch:                 # Run the pipeline when triggered manually from the web UI
     inputs:
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID - service parameter, leave blank"
@@ -99,7 +99,7 @@ jobs:
           pnpm install
           npx playwright install
         # Enable corepack to manage package managers (e.g., pnpm)
-        # Install and activate specific pnpm version
+        # Install and activate a specific pnpm version
         # Install dependencies
         # Install Playwright browser dependencies
 
@@ -113,7 +113,7 @@ jobs:
       - name: ▶️ Run tests
         env:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
-        # Set full Allure TestOps launch name (with timestamp)
+        # Set the full Allure TestOps launch name (with timestamp)
         run: |
           ./allurectl watch pnpm test
         # Execute tests and upload test results to Allure TestOps
