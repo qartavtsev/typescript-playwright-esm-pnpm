@@ -96,12 +96,12 @@ jobs:
           pnpm install
           npx playwright install
 
-      - name: ⬇️ Downloading allurectl
+      - name: ⬇️ Download allurectl
         run: |
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
           chmod +x ./allurectl
 
-      - name: ▶️ Running tests
+      - name: ▶️ Run tests
         run: |
           ./allurectl watch pnpm test
         env:
