@@ -1,0 +1,87 @@
+# Stages used in the pipeline
+stages:
+  - timestamp         # Stage for timestamp parsing
+  - tests             # Stage for tests execution
+
+# Global environment variables
+variables:
+  ALLURE_ENDPOINT: "https://demo.testops.cloud/"                                        # Allure TestOps endpoint URL for submitting test results
+  ALLURE_PROJECT_ID: "4233"                                                             # Allure TestOps project ID for submitting test results
+  ALLURE_RESULTS: "./allure-results"                                                    # Directory where test result files will be stored
+  ALLURE_TOKEN: "$ALLURE_TOKEN"                                                         # Authentication token for Allure TestOps (secured environment variable)
+  ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #$CI_PIPELINE_IID"          # Base Allure TestOps launch name (without timestamp)
+  BRANCH: $CI_COMMIT_REF_NAME                                                           # Current Git branch name 
+# BROWSER configuration is defined in playwright.config.ts
+#
+#  BROWSER:                                                                                
+#    value: "Chrome"                                                                     # Default browser
+#    options:                                                                            # Available options
+#      - "Chrome"
+#      - "Firefox"
+#      - "Safari"
+#    description: "Specify the browser"
+#
+  HOST:
+    value: "demo.testops.cloud"                                                         # Default environment host
+    options:                                                                            # Available options
+      - "demo.testops.cloud"
+      - "production.testops.cloud"
+      - "qa.testops.cloud"
+      - "testing.testops.cloud"
+      - "staging.testops.cloud"
+    description: "Specify the environment host"
+# OS configuration is defined in playwright.config.ts
+#
+#  OS:
+#    value: "macOS"                                                                      # Default operating system
+#    options:                                                                            # Available options
+#      - "Linux"
+#      - "macOS"
+#      - "Windows"
+#    description: "Specify the operating system"
+#
+  VERSION:
+    value: "25.1.0"                                                                     # Default software version under test
+    description: "Specify the software version under test"
+
+# Pipeline execution rules
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"         # Run pipeline when triggered by a scheduled event
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "web"              # Run pipeline when triggered manually from the web UI
+      when: always
+    - when: never                                   # Do not run otherwise
+
+# Timestamp parsing stage
+timestamp_parsing:
+  stage: timestamp
+  script:
+    - echo "PARSED_TIMESTAMP=$(date -d "$CI_COMMIT_TIMESTAMP +3 hours" +"%Y.%m.%d - %H:%M:%S")" >> parsed_timestamp.env         # Adjust commit timestamp (+3 hours) and format it
+  artifacts:
+    reports:
+      dotenv: parsed_timestamp.env                                                                                              # Export parsed timestamp to dotenv file for reuse
+
+# Tests execution stage
+tests_execution:
+  stage: tests
+  image: mcr.microsoft.com/playwright:v1.42.1-jammy                                                                             # Use official Playwright Docker image
+  script:
+    - corepack enable                                                                                                           # Enable corepack to manage package managers (e.g., pnpm)
+    - corepack prepare pnpm@8.15.4 --activate                                                                                   # Install and activate specific pnpm version
+    - pnpm install                                                                                                              # Install dependencies
+    - npx playwright install                                                                                                    # Install Playwright browser dependencies
+
+    - echo "⬇️ Downloading allurectl..."                                                                                         # Log message before downloading allurectl
+    - wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl          # Download allurectl
+    - chmod +x ./allurectl                                                                                                      # Make allurectl executable
+
+    - echo "▶️ Running tests..."                                                                                                 # Log message before test execution
+    - export ALLURE_LAUNCH_NAME="$ALLURE_LAUNCH_NAME_WITHOUT_TIME - $PARSED_TIMESTAMP"                                          # Set full Allure TestOps launch name (with timestamp)
+    - ./allurectl watch pnpm test                                                                                               # Execute tests and upload test results to Allure TestOps
+
+# Save test results as artifacts and keep them for 1 hour
+  artifacts:
+    paths:
+      - $ALLURE_RESULTS
+    expire_in: 1 hour
