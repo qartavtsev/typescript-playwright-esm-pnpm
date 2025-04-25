@@ -89,7 +89,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Enable corepack and install pnpm
+      - name: 📦 Enable corepack and install pnpm
         run: |
           corepack enable
           corepack prepare pnpm@8.15.4 --activate
