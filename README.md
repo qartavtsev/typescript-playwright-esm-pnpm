@@ -9,8 +9,8 @@ This project contains example tests for verifying the documentation at https://d
 
 ## Project Structure
 
+- `.github/workflows` — Directory with GitHub CI pipeline configuration
 - `tests/` — Directory with test files
-- `.gitlab-ci.yml` — GitLab CI pipeline configuration
 - `package.json` —  Project dependencies and scripts
 - `playwright.config.ts` — Playwright configuration
 - `pnpm-lock.yaml` — Locked dependency versions
