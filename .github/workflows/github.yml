@@ -24,6 +24,7 @@ env:
   ALLURE_RESULTS: "./allure-results"
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"
   BRANCH: ${{ github.ref_name }} 
+  HOME: /root
 
 jobs:
   timestamp:
