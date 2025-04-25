@@ -1,10 +1,12 @@
+# Name of the pipeline
 name: ato-typescript-playwright-esm-pnpm
 
+# Pipeline execution rules
 on:
-  # Run pipeline when triggered by a scheduled event every 3rd day at midnight UTC
+  # Run pipeline when triggered by a scheduled event (every 3rd day at midnight UTC)
   # schedule:
   #   - cron: '0 0 */3 * *'
-  workflow_dispatch:
+  workflow_dispatch:          # Run pipeline when triggered manually from the web UI
     inputs:
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID - service parameter (leave blank)"
@@ -14,10 +16,43 @@ on:
         description: "ALLURE_USERNAME - service parameter (leave blank)"
         required: false
         default: ""
+      # BROWSER configuration is defined in playwright.config.ts
+      #
+      # BROWSER: 
+      #  description: "Specify the browser"
+      #  required: true
+      #  default: "Chrome"
+      #  type: choice
+      #  options:
+      #    - "Chrome"
+      #    - "Firefox"
+      #    - "Safari"
+      #
       HOST: 
+        description: "Specify the environment host"
         required: true
         default: "demo.testops.cloud"
+        type: choice
+        options:
+          - "demo.testops.cloud"
+          - "production.testops.cloud"
+          - "qa.testops.cloud"
+          - "testing.testops.cloud"
+          - "staging.testops.cloud"
+      # OS configuration is defined in playwright.config.ts
+      #
+      # OS: 
+      #  description: "Specify the operating system"
+      #  required: true
+      #  default: "macOS"
+      #  type: choice
+      #  options:
+      #    - "Linux"
+      #    - "macOS"
+      #    - "Windows"
+      #
       VERSION:
+        description: "Specify the software version under test"
         required: true
         default: "25.1.0"
 
