@@ -1,6 +1,9 @@
 name: ato-typescript-playwright-esm-pnpm
 
 on:
+  # Run pipeline when triggered by a scheduled event every 3rd day at midnight UTC
+  # schedule:
+  #   - cron: '0 0 */3 * *'
   workflow_dispatch:
     inputs:
       ALLURE_JOB_RUN_ID:
