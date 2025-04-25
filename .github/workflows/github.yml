@@ -63,8 +63,7 @@ env:
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
   BRANCH: ${{ github.ref_name }}                                                                # Current Git branch name 
-  HOME: /root                                                                                   # Firefox doesn’t allow running as root unless $HOME is explicitly set to /root
-
+  HOME: /root                                                                                   # Home directory path required for Firefox to run as root
 jobs:
   # Job for timestamp parsing
   timestamp:
