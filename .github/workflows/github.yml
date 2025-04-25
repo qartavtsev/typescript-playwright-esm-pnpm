@@ -73,11 +73,3 @@ jobs:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         run: |
           ./allurectl watch pnpm test
-
-      - name: Upload Allure results
-        uses: actions/upload-artifact@v3
-          with:
-            name: allure-results
-            path: ${{ env.ALLURE_RESULTS }}
-            retention-days: 1
-            
