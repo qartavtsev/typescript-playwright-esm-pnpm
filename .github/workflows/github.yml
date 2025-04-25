@@ -64,6 +64,8 @@ env:
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
   BRANCH: ${{ github.ref_name }}                                                                # Current Git branch name 
   HOME: /root                                                                                   # Home directory path required for Firefox to run as root
+
+# Jobs used in the pipeline
 jobs:
   # Job for timestamp parsing
   timestamp:
@@ -77,6 +79,8 @@ jobs:
         run: |
           PARSED_TIMESTAMP=$(date -d "${{ github.event.head_commit.timestamp }} +3 hours" +"%Y.%m.%d - %H:%M:%S")
           echo "PARSED_TIMESTAMP=$PARSED_TIMESTAMP" >> $GITHUB_OUTPUT
+        # Adjust commit timestamp (+3 hours) and format it
+        # Export parsed timestamp to GitHub Actions output for reuse
   
   # Job for test execution
   tests:
@@ -86,22 +90,30 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.42.1-jammy          # Use the official Playwright Docker image
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v3                                # Checkout the code from the repository
+      
       - name: ⚙️ Enable and configure the package manager with pnpm and Playwright browser dependencies
         run: |
           corepack enable
           corepack prepare pnpm@8.15.4 --activate
           pnpm install
           npx playwright install
+        # Enable corepack to manage package managers (e.g., pnpm)
+        # Install and activate specific pnpm version
+        # Install dependencies
+        # Install Playwright browser dependencies
 
       - name: ⬇️ Download allurectl
         run: |
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
           chmod +x ./allurectl
+        # Download allurectl
+        # Make allurectl executable
 
       - name: ▶️ Run tests
         run: |
           ./allurectl watch pnpm test
+        # Execute tests and upload test results to Allure TestOps
         env:
-          ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"          # Set full Allure TestOps launch name (with timestamp)
+          ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
+        # Set full Allure TestOps launch name (with timestamp)
