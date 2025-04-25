@@ -79,29 +79,29 @@ jobs:
           PARSED_TIMESTAMP=$(date -d "${{ github.event.head_commit.timestamp }} +3 hours" +"%Y.%m.%d - %H:%M:%S")
           echo "PARSED_TIMESTAMP=$PARSED_TIMESTAMP" >> $GITHUB_OUTPUT
   
-  # Job for tests execution
+  # Job for test execution
   tests:
     name: tests_execution
     needs: timestamp
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.42.1-jammy          # Use official Playwright Docker image
+      image: mcr.microsoft.com/playwright:v1.42.1-jammy          # Use the official Playwright Docker image
     steps:
       - uses: actions/checkout@v3
 
-      - name: 📦 Enable corepack and install pnpm
+      - name: ⚙️ Enable and configure the package manager with pnpm and Playwright browser dependencies
         run: |
           corepack enable
           corepack prepare pnpm@8.15.4 --activate
           pnpm install
           npx playwright install
 
-      - name: ⬇️ Downloading allurectl...
+      - name: ⬇️ Downloading allurectl
         run: |
           wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
           chmod +x ./allurectl
 
-      - name: ▶️ Running tests...
+      - name: ▶️ Running tests
         run: |
           ./allurectl watch pnpm test
         env:
