@@ -1,5 +1,5 @@
 # Name of the pipeline
-name: ato-typescript-playwright-esm-pnpm
+name: ato
 
 # Pipeline execution rules
 on:
