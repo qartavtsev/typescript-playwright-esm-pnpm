@@ -3,17 +3,16 @@ name: ato-typescript-playwright-esm-pnpm
 
 # Pipeline execution rules
 on:
-  # Run pipeline when triggered by a scheduled event (every 3rd day at midnight UTC)
-  # schedule:
-  #   - cron: '0 0 */3 * *'
-  workflow_dispatch:          # Run pipeline when triggered manually from the web UI
+  # schedule:                        # Run pipeline when triggered by a scheduled event
+  #   - cron: '0 0 */3 * *'          # Run pipeline every 3rd day at midnight UTC
+  workflow_dispatch:                 # Run pipeline when triggered manually from the web UI
     inputs:
       ALLURE_JOB_RUN_ID:
-        description: "ALLURE_JOB_RUN_ID - service parameter (leave blank)"
+        description: "ALLURE_JOB_RUN_ID - service parameter, leave blank"
         required: false
         default: ""
       ALLURE_USERNAME:
-        description: "ALLURE_USERNAME - service parameter (leave blank)"
+        description: "ALLURE_USERNAME - service parameter, leave blank"
         required: false
         default: ""
       # BROWSER configuration is defined in playwright.config.ts
@@ -56,13 +55,15 @@ on:
         required: true
         default: "25.1.0"
 
+# Global environment variables
 env:
-  ALLURE_ENDPOINT: "https://demo.testops.cloud/"
-  ALLURE_PROJECT_ID: "3111"
-  ALLURE_RESULTS: "./allure-results"
-  ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"
-  BRANCH: ${{ github.ref_name }} 
-  HOME: /root
+  ALLURE_ENDPOINT: "https://demo.testops.cloud/"                                                # Allure TestOps endpoint URL for submitting test results
+  ALLURE_PROJECT_ID: "3111"                                                                     # Allure TestOps project ID for submitting test results
+  ALLURE_RESULTS: "./allure-results"                                                            # Directory where test result files will be stored
+  ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
+  ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
+  BRANCH: ${{ github.ref_name }}                                                                # Current Git branch name 
+  HOME: /root                                                                                   # Firefox doesn’t allow running as root unless $HOME is explicitly set to /root
 
 jobs:
   timestamp:
@@ -100,7 +101,6 @@ jobs:
 
       - name: Run Playwright tests and upload to Allure
         env:
-          ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         run: |
           ./allurectl watch pnpm test
