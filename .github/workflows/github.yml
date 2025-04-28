@@ -60,6 +60,7 @@ env:
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
   ALLURE_PROJECT_ID: "3111"                                                                     # Allure TestOps project ID for submitting test results
   ALLURE_RESULTS: "./allure-results"                                                            # Directory where test result files will be stored
+  ALLURE_TESTPLAN_PATH: "./testplan.json"
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
   BRANCH: ${{ github.ref_name }}                                                                # Current Git branch name
@@ -107,12 +108,12 @@ jobs:
         # Install dependencies
         # Install Playwright browser dependencies
 
-      - name: ⬇️ Download allurectl
-        run: |
-          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
-          chmod +x ./allurectl
-        # Download allurectl
-        # Make allurectl executable
+      - name: ⬇️ Install and configure allurectl using GH Action
+        uses: allure-framework/setup-allurectl@v1
+        with:
+          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
 
       - name: ▶️ Run tests
         env:
