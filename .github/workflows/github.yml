@@ -9,11 +9,9 @@ on:
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID - service parameter, leave blank"
         required: false
-        default: ""
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME - service parameter, leave blank"
         required: false
-        default: ""
       # BROWSER configuration is defined in playwright.config.ts
       #
       # BROWSER: 
