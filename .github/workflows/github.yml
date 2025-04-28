@@ -57,6 +57,7 @@ on:
 # Global environment variables
 env:
   ALLURE_ENDPOINT: "https://demo.testops.cloud/"                                                # Allure TestOps endpoint URL for submitting test results
+  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
   ALLURE_PROJECT_ID: "3111"                                                                     # Allure TestOps project ID for submitting test results
   ALLURE_RESULTS: "./allure-results"                                                            # Directory where test result files will be stored
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
