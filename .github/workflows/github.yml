@@ -1,5 +1,9 @@
 name: ato
 
+permissions:
+  contents: read
+  id-token: write
+
 # Pipeline execution rules
 on:
   # schedule:                        # Run the pipeline when triggered by a scheduled event
