@@ -1,7 +1,8 @@
 name: ato
 
 permissions:
-  contents: read
+  contents: write
+  actions: write
   id-token: write
 
 # Pipeline execution rules
@@ -110,19 +111,20 @@ jobs:
         # Install dependencies
         # Install Playwright browser dependencies
 
-    #  - name: ⬇️ Install and configure allurectl using GH Action
-    #    uses: allure-framework/setup-allurectl@v1
-    #    with:
-    #      allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
-    #      allure-token: ${{ secrets.ALLURE_TOKEN }}
-    #      allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
+      - name: ⬇️ Install and configure allurectl using GH Action
+        uses: allure-framework/setup-allurectl@v1
+        with:
+          allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
+          allure-token: ${{ secrets.ALLURE_TOKEN }}
+          allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
 
-      - name: ⬇️ Download allurectl
-        run: |
-          wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
-          chmod +x ./allurectl
-        # Download allurectl
-       # Make allurectl executable
+    #  - name: ⬇️ Download allurectl
+    #    run: |
+    #      wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
+    #      chmod +x ./allurectl
+    #    # Download allurectl
+    #   # Make allurectl executable
 
       - name: ▶️ Run tests
         env:
