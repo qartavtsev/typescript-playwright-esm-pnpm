@@ -134,5 +134,5 @@ jobs:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         # Set the full Allure TestOps launch name (with timestamp)
         run: |
-          ./allurectl watch pnpm test
+          allurectl watch pnpm test
         # Execute tests and upload test results to Allure TestOps
