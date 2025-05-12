@@ -119,8 +119,8 @@ jobs:
           allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }} 
 
-      - name: 🛠 Add allurectl to PATH
-        run: echo "/root/.allurectl/bin" >> $GITHUB_PATH
+    #  - name: 🛠 Add allurectl to PATH
+    #    run: echo "/root/.allurectl/bin" >> $GITHUB_PATH
 
     #  - name: ⬇️ Download allurectl
     #    run: |
