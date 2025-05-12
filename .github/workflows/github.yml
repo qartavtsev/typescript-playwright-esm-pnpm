@@ -102,7 +102,7 @@ jobs:
       - name: ⚙️ Enable and configure the package manager with pnpm and Playwright browser dependencies
         run: |
           corepack enable
-          corepack prepare pnpm@9.0.0 --activate
+          corepack prepare pnpm@9.15.9 --activate
           pnpm --version
           pnpm install
           pnpm --version
