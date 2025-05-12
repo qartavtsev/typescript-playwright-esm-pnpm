@@ -1,9 +1,9 @@
 name: ato
 
-permissions:
-  contents: write
-  actions: write
-  id-token: write
+#permissions:
+#  contents: write
+#  actions: write
+#  id-token: write
 
 # Pipeline execution rules
 on:
@@ -22,7 +22,7 @@ on:
       # BROWSER: 
       #  description: "Specify the browser"
       #  required: false
-      #  default: "Chrome"                                              # Default browser
+      #  default: ""                                                    # Default browser
       #  type: choice
       #  options:                                                       # Available options
       #    - "Chrome"
@@ -32,7 +32,7 @@ on:
       HOST: 
         description: "Specify the environment host"
         required: false
-        default: "demo.testops.cloud"                                   # Default environment host
+        default: ""                                                     # Default environment host
         type: choice
         options:                                                        # Available options
           - "demo.testops.cloud"
@@ -45,7 +45,7 @@ on:
       # OS: 
       #  description: "Specify the operating system"
       #  required: false
-      #  default: "macOS"                                               # Default operating system
+      #  default: ""                                                    # Default operating system
       #  type: choice
       #  options:                                                       # Available options
       #    - "Linux"
@@ -55,7 +55,7 @@ on:
       VERSION:
         description: "Specify the software version under test"
         required: false
-        default: "25.1.0"                                               # Default software version under test
+        default: ""                                                     # Default software version under test
 
 # Global environment variables
 env:
@@ -63,7 +63,6 @@ env:
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
   ALLURE_PROJECT_ID: "3111"                                                                     # Allure TestOps project ID for submitting test results
   ALLURE_RESULTS: "./allure-results"                                                            # Directory where test result files will be stored
-  #ALLURE_TESTPLAN_PATH: "./testplan.json"
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
   BRANCH: ${{ github.ref_name }}                                                                # Current Git branch name
