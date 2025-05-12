@@ -21,7 +21,7 @@ on:
       #
       # BROWSER: 
       #  description: "Specify the browser"
-      #  required: true
+      #  required: false
       #  default: "Chrome"                                              # Default browser
       #  type: choice
       #  options:                                                       # Available options
@@ -31,7 +31,7 @@ on:
       #
       HOST: 
         description: "Specify the environment host"
-        required: true
+        required: false
         default: "demo.testops.cloud"                                   # Default environment host
         type: choice
         options:                                                        # Available options
@@ -44,7 +44,7 @@ on:
       #
       # OS: 
       #  description: "Specify the operating system"
-      #  required: true
+      #  required: false
       #  default: "macOS"                                               # Default operating system
       #  type: choice
       #  options:                                                       # Available options
@@ -54,7 +54,7 @@ on:
       #
       VERSION:
         description: "Specify the software version under test"
-        required: true
+        required: false
         default: "25.1.0"                                               # Default software version under test
 
 # Global environment variables
