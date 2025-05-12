@@ -71,7 +71,7 @@ env:
   HOST: ${{ inputs.HOST }}                                                                      # Environment host specified for test execution
   # OS: ${{ inputs.OS }}                                                                          # Operating system specified for test execution
   VERSION: ${{ inputs.VERSION }}                                                                # Software version under test specified
-  HOME: /root                                                                                   # Home directory path required for Firefox to run as root
+  #HOME: /root                                                                                   # Home directory path required for Firefox to run as root
 
 # Jobs used in the pipeline
 jobs:
