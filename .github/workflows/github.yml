@@ -103,7 +103,9 @@ jobs:
         run: |
           corepack enable
           corepack prepare pnpm@9.0.0 --activate
+          pnpm --version
           pnpm install
+          pnpm --version
           npx playwright install
         # Enable corepack to manage package managers (e.g., pnpm)
         # Install and activate a specific pnpm version
