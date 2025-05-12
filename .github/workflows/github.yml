@@ -111,6 +111,16 @@ jobs:
         # Install dependencies
         # Install Playwright browser dependencies
 
+      - name: 🧪 Check if testplan.json exists
+        run: |
+          if [ -f "./testplan.json" ]; then
+            echo "✅ testplan.json exists"
+            cat ./testplan.json
+          else
+            echo "❌ testplan.json does not exist"
+            exit 1
+          fi
+
       - name: ⬇️ Install and configure allurectl using GH Action
         uses: allure-framework/setup-allurectl@v1
         with:
