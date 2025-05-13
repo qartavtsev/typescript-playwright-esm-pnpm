@@ -1,9 +1,4 @@
-name: ato
-
-#permissions:
-#  contents: write
-#  actions: write
-#  id-token: write
+name: ATO
 
 # Pipeline execution rules
 on:
@@ -17,6 +12,7 @@ on:
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME - service parameter, leave blank"
         required: false
+      
       # BROWSER configuration is defined in playwright.config.ts
       #
       # BROWSER: 
@@ -103,16 +99,14 @@ jobs:
         run: |
           corepack enable
           corepack prepare pnpm@9.15.9 --activate
-          pnpm --version
           pnpm install
-          pnpm --version
           npx playwright install
         # Enable corepack to manage package managers (e.g., pnpm)
         # Install and activate a specific pnpm version
         # Install dependencies
         # Install Playwright browser dependencies
 
-      - name: ⬇️ Install and configure allurectl using GH Action
+      - name: ⬇️ Install and configure allurectl using GH Actions
         uses: allure-framework/setup-allurectl@v1
         with:
           allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
@@ -120,31 +114,12 @@ jobs:
           allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }} 
 
-    #  - name: 🧪 Check if testplan.json exists
-    #    run: |
-    #      if [ -f "./testplan.json" ]; then
-    #        echo "✅ testplan.json exists"
-    #        cat ./testplan.json
-    #      else
-    #        echo "❌ testplan.json does not exist"
-    #        exit 1
-    #      fi
-
-    #  - name: 🛠 Add allurectl to PATH
-    #    run: echo "/root/.allurectl/bin" >> $GITHUB_PATH
-
-    #  - name: ⬇️ Download allurectl
-    #    run: |
-    #      wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_amd64 -O ./allurectl
-    #      chmod +x ./allurectl
-    #    # Download allurectl
-    #   # Make allurectl executable
-
       - name: ▶️ Run tests
         env:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         # Set the full Allure TestOps launch name (with timestamp)
         run: |
           allurectl watch --help
+        #
           allurectl watch pnpm test
         # Execute tests and upload test results to Allure TestOps
