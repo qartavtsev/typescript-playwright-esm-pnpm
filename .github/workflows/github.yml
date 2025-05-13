@@ -1,4 +1,4 @@
-name: ato
+name: Run Tests
 
 # Pipeline execution rules
 on:
