@@ -185,8 +185,8 @@ test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
   await allure.description('Simulates a failed attempt to use the keyboard shortcut for search, which is unavailable');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Search');
-  await allure.story('Keyboard Search');
-  await allure.tags('Error', 'Keyboard', 'Search');
+  await allure.story('Shortcut Search');
+  await allure.tags('Error', 'Shortcut', 'Search');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
