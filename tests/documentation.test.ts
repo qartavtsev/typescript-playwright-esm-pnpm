@@ -11,7 +11,7 @@ test('Should display correct title on the documentation homepage - using allure.
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Title');
-  await allure.tags('Homepage', 'UI', 'Validation');
+  await allure.tags('Homepage', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -29,7 +29,7 @@ test('Should display correct title on the documentation homepage - using test.st
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Title');
-  await allure.tags('Homepage', 'UI', 'Validation');
+  await allure.tags('Homepage', 'UI');
 
   await test.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -47,7 +47,7 @@ test('Should display correct title on the documentation homepage - without using
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Title');
-  await allure.tags('Homepage', 'UI', 'Validation');
+  await allure.tags('Homepage', 'UI');
 
   await page.goto('https://docs.qameta.io/allure-testops/');
 
@@ -61,7 +61,7 @@ test('Should display correct header on the documentation homepage', async ({ pag
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Header');
-  await allure.tags('Homepage', 'UI', 'Validation');
+  await allure.tags('Homepage', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -78,8 +78,8 @@ test('Should navigate to the Overview page when the link is clicked', async ({ p
   await allure.description('Validates the navigation to the Overview page via the sidebar link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Section');
-  await allure.tags('Navigation', 'UI');
+  await allure.story('Sections');
+  await allure.tags('Section', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -109,7 +109,7 @@ test('Should display the sidebar and open Getting Started section', async ({ pag
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
-  await allure.tags('Navigation', 'Sidebar', 'UI');
+  await allure.tags('Sidebar', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -138,8 +138,8 @@ test('Should open Install page via "to deploy Allure TestOps" link', async ({ pa
   await allure.description('Confirms that the "To deploy Allure TestOps" link navigates to the Install page');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Section');
-  await allure.tags('Installation', 'Link', 'Navigation');
+  await allure.story('Sections');
+  await allure.tags('URL', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -167,7 +167,7 @@ test('Should display the Allure TestOps logo on the homepage', async ({ page }) 
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Logo');
-  await allure.tags('Logo', 'UI', 'Visibility');
+  await allure.tags('Logo', 'Homepage', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -216,7 +216,7 @@ test('Should fail due to an intentionally incorrect URL expectation', async ({ p
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Broken Navigation');
-  await allure.tags('Error', 'URL');
+  await allure.tags('Error', 'URL', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -242,7 +242,7 @@ test('Should fail when clicking a non-existent navigation link', async ({ page }
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Broken Navigation');
-  await allure.tags('Error', 'Link', 'Navigation');
+  await allure.tags('Error', 'URL', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
