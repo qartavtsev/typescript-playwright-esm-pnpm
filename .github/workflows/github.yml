@@ -61,16 +61,16 @@ on:
 # Global environment variables
 env:
   ALLURE_ENDPOINT: "https://demo.testops.cloud/"                                                # Allure TestOps endpoint URL for submitting test results
-  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}                               # Allure TestOps job run ID for test results association
   ALLURE_PROJECT_ID: "3111"                                                                     # Allure TestOps project ID for submitting test results
   ALLURE_RESULTS: "./allure-results"                                                            # Directory where test result files will be stored
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
-  BRANCH: ${{ github.event.inputs.BRANCH }}                                                              # Git branch name specified for test execution
-  # BROWSER: ${{ github.event.inputs.BROWSER }}                                                                 # Browser specified for test execution
-  HOST: ${{ github.event.inputs.HOST }}                                                                     # Environment host specified for test execution
-  # OS: ${{ github.event.inputs.OS }}                                                                          # Operating system specified for test execution
-  VERSION: ${{ github.event.inputs.VERSION }}                                                                # Software version under test specified
+  BRANCH: ${{ github.event.inputs.BRANCH }}                                                     # Git branch name specified for test execution
+  # BROWSER: ${{ github.event.inputs.BROWSER }}                                                 # Browser specified for test execution
+  HOST: ${{ github.event.inputs.HOST }}                                                         # Environment host specified for test execution
+  # OS: ${{ github.event.inputs.OS }}                                                           # Operating system specified for test execution
+  VERSION: ${{ github.event.inputs.VERSION }}                                                   # Software version under test specified
 
 # Jobs used in the pipeline
 jobs:
