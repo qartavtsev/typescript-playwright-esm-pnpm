@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       '@playwright/test':
-        specifier: ^1.51.1
+        specifier: ^1.52.0
         version: 1.52.0
       '@types/node':
-        specifier: ^20.17.30
+        specifier: ^20.17.46
         version: 20.17.46
       allure-js-commons:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.2(allure-playwright@3.2.2(@playwright/test@1.52.0))
       allure-playwright:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.2(@playwright/test@1.52.0)
 
 packages:
