@@ -120,6 +120,6 @@ jobs:
         # Set the full Allure TestOps launch name (with timestamp)
         run: |
           allurectl watch --help
-        #
+        # Display help for allurectl watch command
           allurectl watch pnpm test
         # Execute tests and upload test results to Allure TestOps
