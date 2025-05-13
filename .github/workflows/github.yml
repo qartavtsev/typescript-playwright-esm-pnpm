@@ -95,7 +95,7 @@ jobs:
     needs: timestamp
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         # Checkout the code from the repository
 
       - name: Install and configure pnpm and Playwright
