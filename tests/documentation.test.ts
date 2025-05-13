@@ -78,7 +78,7 @@ test('Should navigate to the Overview page when the link is clicked', async ({ p
   await allure.description('Validates the navigation to the Overview page via the sidebar link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Overview Page');
+  await allure.story('Section');
   await allure.tags('Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -138,7 +138,7 @@ test('Should open Install page via "to deploy Allure TestOps" link', async ({ pa
   await allure.description('Confirms that the "To deploy Allure TestOps" link navigates to the Install page');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Install Page');
+  await allure.story('Section');
   await allure.tags('Installation', 'Link', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
