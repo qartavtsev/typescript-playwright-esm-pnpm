@@ -2,9 +2,9 @@ name: ato
 
 # Pipeline execution rules
 on:
-  # schedule:                        # Run the pipeline when triggered by a scheduled event
-  #   - cron: '0 0 * * *'            # Run the pipeline every day at midnight UTC
-  workflow_dispatch:                 # Run the pipeline when triggered manually from the web UI
+  # schedule:                      # Run the pipeline when triggered by a scheduled event
+  #   - cron: '0 0 * * *'          # Run the pipeline every day at midnight UTC
+  workflow_dispatch:               # Run the pipeline when triggered manually from the web UI
     inputs:
       ALLURE_JOB_RUN_ID:
         description: "ALLURE_JOB_RUN_ID - service parameter, leave blank"
@@ -13,22 +13,23 @@ on:
         description: "ALLURE_USERNAME - service parameter, leave blank"
         required: false
       BRANCH:
-        description: "Specify Git branch name"
+        description: "Specify the Git branch name"
         required: false
         default: ""                                                     # Default Git branch name
+      # 
       # BROWSER configuration is defined in playwright.config.ts
-      #
-      # BROWSER: 
-      #  description: "Specify the browser"
-      #  required: false
-      #  default: ""                                                    # Default browser
-      #  type: choice
-      #  options:                                                       # Available options
-      #    - "Chrome"
-      #    - "Firefox"
-      #    - "Safari"
-      #
-      HOST: 
+      # 
+      # BROWSER:
+      #   description: "Specify the browser"
+      #   required: false
+      #   default: ""                                                   # Default browser
+      #   type: choice
+      #   options:                                                      # Available options
+      #     - "Chrome"
+      #     - "Firefox"
+      #     - "Safari"
+      # 
+      HOST:
         description: "Specify the environment host"
         required: false
         default: ""                                                     # Default environment host
@@ -39,18 +40,19 @@ on:
           - "qa.testops.cloud"
           - "testing.testops.cloud"
           - "staging.testops.cloud"
+      #  
       # OS configuration is defined in playwright.config.ts
-      #
-      # OS: 
-      #  description: "Specify the operating system"
-      #  required: false
-      #  default: ""                                                    # Default operating system
-      #  type: choice
-      #  options:                                                       # Available options
-      #    - "Linux"
-      #    - "macOS"
-      #    - "Windows"
-      #
+      # 
+      # OS:
+      #   description: "Specify the operating system"
+      #   required: false
+      #   default: ""                                                   # Default operating system
+      #   type: choice
+      #   options:                                                      # Available options
+      #     - "Linux"
+      #     - "macOS"
+      #     - "Windows"
+      # 
       VERSION:
         description: "Specify the software version under test"
         required: false
