@@ -44,19 +44,19 @@ export default defineConfig({
 
   // Define individual test projects for different browsers
   projects: [
+    // Use predefined device settings for Google Chrome
     {
-      // Use predefined device settings for Google Chrome
       name: "Google Chrome",
       use: {
         ...devices["Desktop Chrome"],
       },
     },
-    {
-      // Use predefined device settings for Mozilla Firefox
-      name: "Mozilla Firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-      },
-    },
+    // Use predefined device settings for Mozilla Firefox
+    // {
+    //   name: "Mozilla Firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //   },
+    // },
   ],
 });
