@@ -214,8 +214,8 @@ test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
 test('Should fail due to an intentionally incorrect URL expectation', async ({ page }) => {
   await allure.description('Tests navigation to the Overview page and verifies an incorrect expected URL to simulate a failure');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Content');
-  await allure.story('URL Mismatch');
+  await allure.feature('Navigation');
+  await allure.story('Broken Navigation');
   await allure.tags('Error', 'URL');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
