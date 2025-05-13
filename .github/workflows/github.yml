@@ -113,13 +113,13 @@ jobs:
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }} 
-
+ 
       - name: ▶️ Run tests
         env:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         # Set the full Allure TestOps launch name (with timestamp)
         run: |
-          allurectl watch --help
+        #  allurectl watch --help
         # Display help for allurectl watch command
           allurectl watch pnpm test
         # Execute tests and upload test results to Allure TestOps
