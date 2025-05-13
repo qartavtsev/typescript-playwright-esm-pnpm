@@ -139,7 +139,7 @@ test('Should open Install page via "to deploy Allure TestOps" link', async ({ pa
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
-  await allure.tags('URL', 'Navigation', 'UI');
+  await allure.tags('Section', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -215,7 +215,7 @@ test('Should fail due to an intentionally incorrect URL expectation', async ({ p
   await allure.description('Tests navigation to the Overview page and verifies an incorrect expected URL to simulate a failure');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Broken Navigation');
+  await allure.story('URL Navigation');
   await allure.tags('Error', 'URL', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -241,7 +241,7 @@ test('Should fail when clicking a non-existent navigation link', async ({ page }
   await allure.description('Attempts to click a nonexistent link to simulate broken navigation');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Broken Navigation');
+  await allure.story('URL Navigation');
   await allure.tags('Error', 'URL', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
