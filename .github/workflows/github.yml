@@ -101,9 +101,8 @@ jobs:
       - name: Enable and configure the package manager with pnpm and Playwright browser dependencies
         run: |
           corepack enable
-          pnpm --version
           pnpm install
-          npx playwright install
+          npx playwright install --with-deps
         # Enable corepack to manage package managers (e.g., pnpm)
         # Install dependencies
         # Install Playwright browser dependencies
