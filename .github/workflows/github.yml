@@ -1,4 +1,4 @@
-name: Run tests
+name: run-tests
 
 # Pipeline execution rules
 on:
