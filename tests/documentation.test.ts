@@ -11,7 +11,6 @@ test('Should display correct title and header on the documentation homepage - us
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
   await allure.story('Page title and header');
-  await allure.severity('trivial');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -34,7 +33,6 @@ test('Should display correct title and header on the documentation homepage - us
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
   await allure.story('Page title and header');
-  await allure.severity('trivial');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await test.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -57,7 +55,6 @@ test('Should display correct title and header on the documentation homepage - wi
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
   await allure.story('Page title and header');
-  await allure.severity('trivial');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await page.goto('https://docs.qameta.io/allure-testops/');
@@ -74,7 +71,6 @@ test('Should navigate to the Overview page when the link is clicked', async ({ p
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Overview section');
-  await allure.severity('normal');
   await allure.tags('Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -105,7 +101,6 @@ test('Should display the sidebar and open Getting Started section', async ({ pag
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('UI Elements');
   await allure.story('Sidebar and Getting Started section');
-  await allure.severity('minor');
   await allure.tags('Navigation', 'Sidebar', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -136,7 +131,6 @@ test('Should open Install page via "to deploy Allure TestOps" link', async ({ pa
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Internal Navigation');
   await allure.story('Install Page Link');
-  await allure.severity('normal');
   await allure.tags('Installation', 'Link', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -165,7 +159,6 @@ test('Should display the Allure TestOps logo on the homepage', async ({ page }) 
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('UI Elements');
   await allure.story('Logo visibility');
-  await allure.severity('trivial');
   await allure.tags('Logo', 'UI', 'Visibility');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -185,7 +178,6 @@ test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Search');
   await allure.story('Keyboard search');
-  await allure.severity('normal');
   await allure.tags('Error', 'Keyboard', 'Search');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -216,7 +208,6 @@ test('Should fail due to an intentionally incorrect URL expectation', async ({ p
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('URL Validation');
   await allure.story('Overview URL mismatch');
-  await allure.severity('minor');
   await allure.tags('Error', 'URL');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -243,7 +234,6 @@ test('Should fail when clicking a non-existent navigation link', async ({ page }
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Broken navigation');
-  await allure.severity('critical');
   await allure.tags('Error', 'Link', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -271,7 +261,6 @@ test('Should randomly pass or fail to simulate flakiness', async ({ page }) => {
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Stability');
   await allure.story('Flaky behavior');
-  await allure.severity('normal');
   await allure.tags('Flaky');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
