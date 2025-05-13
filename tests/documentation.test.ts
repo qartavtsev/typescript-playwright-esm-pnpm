@@ -10,7 +10,7 @@ test('Should display correct title on the documentation homepage - using allure.
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page title');
+  await allure.story('Page Title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -28,7 +28,7 @@ test('Should display correct title on the documentation homepage - using test.st
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page title');
+  await allure.story('Page Title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await test.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -46,7 +46,7 @@ test('Should display correct title on the documentation homepage - without using
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page title');
+  await allure.story('Page Title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await page.goto('https://docs.qameta.io/allure-testops/');
@@ -60,7 +60,7 @@ test('Should display correct header on the documentation homepage', async ({ pag
   await allure.description('Ensures the documentation homepage has the correct main heading');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page header');
+  await allure.story('Page Header');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -185,7 +185,7 @@ test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
   await allure.description('Simulates a failed attempt to use the keyboard shortcut for search, which is unavailable');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Search');
-  await allure.story('Keyboard search');
+  await allure.story('Keyboard Search');
   await allure.tags('Error', 'Keyboard', 'Search');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -241,7 +241,7 @@ test('Should fail when clicking a non-existent navigation link', async ({ page }
   await allure.description('Attempts to click a nonexistent link to simulate broken navigation');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Broken navigation');
+  await allure.story('Broken Navigation');
   await allure.tags('Error', 'Link', 'Navigation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -268,7 +268,7 @@ test('Should randomly pass or fail to simulate flakiness', async ({ page }) => {
   await allure.description('Randomly passes or fails based on a generated number to simulate flaky behavior');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Stability');
-  await allure.story('Flaky behavior');
+  await allure.story('Flaky Behavior');
   await allure.tags('Flaky');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -292,6 +292,6 @@ test.skip('Should be skipped as feature section under development', async ({ pag
   await allure.description('This test is intentionally skipped as the feature is under development');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Skipped feature section');
+  await allure.story('Skipped Feature Section');
   await allure.tags('Skipped');
 });
