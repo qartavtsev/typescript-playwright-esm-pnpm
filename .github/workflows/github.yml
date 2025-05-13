@@ -88,15 +88,16 @@ jobs:
           echo "PARSED_TIMESTAMP=$PARSED_TIMESTAMP" >> $GITHUB_OUTPUT
         # Adjust the commit timestamp (+3 hours) and format it
         # Export the parsed timestamp to GitHub Actions output for reuse
-  
+
   # Job for test execution
   tests:
     name: tests_execution
     needs: timestamp
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3                                # Checkout the code from the repository
-      
+      - uses: actions/checkout@v3
+        # Checkout the code from the repository
+
       - name: ⚙️ Enable and configure the package manager with pnpm and Playwright browser dependencies
         run: |
           corepack enable
@@ -114,8 +115,8 @@ jobs:
           allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
           allure-token: ${{ secrets.ALLURE_TOKEN }}
           allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
-          github-token: ${{ secrets.GITHUB_TOKEN }} 
- 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: ▶️ Run tests
         env:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
