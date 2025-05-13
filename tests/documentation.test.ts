@@ -195,14 +195,7 @@ test.skip('Should navigate to the Features page via the sidebar link', async ({ 
   });
 });
 
-
-
-
-
-
-
-
-// Test #7
+// Test #8
 
 test('Should navigate to the Install page via the "to deploy Allure TestOps" link', async ({ page }) => {
   await allure.description('Validates the navigation to the Install page via the "to deploy Allure TestOps" link');
@@ -234,7 +227,7 @@ test('Should navigate to the Install page via the "to deploy Allure TestOps" lin
   });
 });
 
-// Test #8
+// Test #9
 
 test('Should display the sidebar and the Getting started section', async ({ page }) => {
   await allure.description('Verifies that the sidebar and the Getting started section are visible');
@@ -276,11 +269,7 @@ test('Should display the sidebar and the Getting started section', async ({ page
   });
 });
 
-
-
-
-
-// Test #9
+// Test #10
 
 test('Should fail due to an incorrect URL', async ({ page }) => {
   await allure.description('Tests navigation to the Overview page and verifies an incorrect expected URL to simulate a failure');
@@ -302,7 +291,7 @@ test('Should fail due to an incorrect URL', async ({ page }) => {
   });
 });
 
-// Test #10
+// Test #11
 
 test('Should fail when clicking a non-existent navigation link', async ({ page }) => {
   await allure.description('Attempts to click a nonexistent link to simulate broken navigation');
@@ -324,7 +313,7 @@ test('Should fail when clicking a non-existent navigation link', async ({ page }
   });
 });
 
-// Test #11
+// Test #12
 
 test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
   await allure.description('Simulates a failed attempt to use the keyboard shortcut for search, which is unavailable');
