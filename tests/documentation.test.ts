@@ -7,7 +7,7 @@ import { allure } from 'allure-playwright';
 // Test #1
 
 test('Should display the Allure TestOps logo when visiting the homepage', async ({ page }) => {
-  await allure.description('Ensures that the Allure TestOps logo is displayed on the documentation homepage');
+  await allure.description('Verifies that the Allure TestOps logo is visible when visiting the documentation homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Logo');
@@ -26,7 +26,7 @@ test('Should display the Allure TestOps logo when visiting the homepage', async 
 // Test #2
 
 test('Should display the correct header when visiting the homepage', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct main heading');
+  await allure.description('Verifies that the main heading includes "Allure TestOps" when visiting the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Header');
@@ -44,7 +44,7 @@ test('Should display the correct header when visiting the homepage', async ({ pa
 // Test #3A - test uses 'allure.step' wrappers for steps
 
 test('Should display the correct title when visiting the homepage - using allure.step() wrappers', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct title');
+  await allure.description('Verifies that the page title includes "Allure TestOps" when visiting the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Title');
@@ -62,7 +62,7 @@ test('Should display the correct title when visiting the homepage - using allure
 // Test #3B - test uses 'test.step' wrappers for steps
 
 test('Should display the correct title when visiting the homepage -  - using test.step() wrappers', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct title');
+  await allure.description('Verifies that the page title includes "Allure TestOps" when visiting the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Title');
@@ -80,7 +80,7 @@ test('Should display the correct title when visiting the homepage -  - using tes
 // Test #3C - test has no 'test.step' or 'allure.step' wrappers for steps
 
 test('Should display the correct title when visiting the homepage -  - without using step wrappers', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct title');
+  await allure.description('Verifies that the page title includes "Allure TestOps" when visiting the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
   await allure.story('Page Title');
@@ -94,7 +94,7 @@ test('Should display the correct title when visiting the homepage -  - without u
 // Test #4
 
 test('Should navigate to the Release Notes page via the sidebar', async ({ page }) => {
-  await allure.description('Validates the navigation to the Release notes page via the sidebar link');
+  await allure.description('Verifies that the user can navigate to the Release Notes page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -120,7 +120,7 @@ test('Should navigate to the Release Notes page via the sidebar', async ({ page 
 // Test #5
 
 test('Should navigate to the FAQ page via the sidebar', async ({ page }) => {
-  await allure.description('Validates the navigation to the FAQ page via the sidebar link');
+  await allure.description('Verifies that the user can navigate to the FAQ page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -146,7 +146,7 @@ test('Should navigate to the FAQ page via the sidebar', async ({ page }) => {
 // Test #6
 
 test('Should navigate to the Architecture page via the sidebar', async ({ page }) => {
-  await allure.description('Validates the navigation to the Architecture page via the sidebar link');
+  await allure.description('Verifies that the user can navigate to the Architecture page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -172,7 +172,7 @@ test('Should navigate to the Architecture page via the sidebar', async ({ page }
 // Test #7
 
 test.skip('Should navigate to the Features page via the sidebar (intentionally skipped)', async ({ page }) => {
-  await allure.description('Validates the navigation to the Features page via the sidebar link /nThis should be intentionally skipped as the Features section is under development');
+  await allure.description('Verifies that the user can navigate to the Features page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -198,7 +198,7 @@ test.skip('Should navigate to the Features page via the sidebar (intentionally s
 // Test #8
 
 test('Should navigate to the Overview page via the sidebar (intentionally failed)', async ({ page }) => {
-  await allure.description('Validates the navigation to the Overview page via the sidebar link /nThis should be intentionally failed as link URL is not correct');
+  await allure.description('Verifies that the user can navigate to the Overview page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -224,7 +224,7 @@ test('Should navigate to the Overview page via the sidebar (intentionally failed
 // Test #9
 
 test('Should navigate to the Install page via the "to deploy Allure TestOps" link', async ({ page }) => {
-  await allure.description('Validates the navigation to the Install page via the "to deploy Allure TestOps" link');
+  await allure.description('Verifies that the user can navigate to the Install page via the "to deploy Allure TestOps" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -255,8 +255,8 @@ test('Should navigate to the Install page via the "to deploy Allure TestOps" lin
 
 // Test #10
 
-test('Should navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link (intentionally failed)', async ({ page }) => {
-  await allure.description('Validates the navigation to the Terms and Concepts page via the "terms and concepts of Allure TestOps" link /nThis should be intentionally failed as link text is not correct');
+test('Should navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOps" link (intentionally failed)', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -288,7 +288,7 @@ test('Should navigate to the Terms and Concepts page via the "terms and concepts
 // Test #11
 
 test('Should display the sidebar and Getting Started section when visiting the homepage', async ({ page }) => {
-  await allure.description('Validates that the sidebar and the Getting started section are visible');
+  await allure.description('Verifies that the sidebar and the Getting Started section are visible on the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -330,7 +330,7 @@ test('Should display the sidebar and Getting Started section when visiting the h
 // Test #12
 
 test('Should search documentation via Ctrl+K shortcut (intentionally failed)', async ({ page }) => {
-  await allure.description('Validates search via Ctrl+K shortcut in Allure TestOps documentation /nThis should be intentionally failed as search via Ctrl+K shortcut is not available');
+  await allure.description('Verifies search behavior using Ctrl+K shortcut');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Search');
   await allure.story('Shortcut Search');
