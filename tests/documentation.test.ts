@@ -6,7 +6,7 @@ import { allure } from 'allure-playwright';
 
 // Test #1
 
-test('Should display the Allure TestOps logo on the homepage', async ({ page }) => {
+test('Should display the Allure TestOps logo when visiting the homepage', async ({ page }) => {
   await allure.description('Ensures that the Allure TestOps logo is displayed on the documentation homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -25,7 +25,7 @@ test('Should display the Allure TestOps logo on the homepage', async ({ page }) 
 
 // Test #2
 
-test('Should display correct header on the homepage', async ({ page }) => {
+test('Should display the correct header when visiting the homepage', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct main heading');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -43,7 +43,7 @@ test('Should display correct header on the homepage', async ({ page }) => {
 
 // Test #3A - test uses 'allure.step' wrappers for steps
 
-test('Should display correct title on the homepage - using allure.step() wrappers', async ({ page }) => {
+test('Should display the correct title when visiting the homepage - using allure.step() wrappers', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -61,7 +61,7 @@ test('Should display correct title on the homepage - using allure.step() wrapper
 
 // Test #3B - test uses 'test.step' wrappers for steps
 
-test('Should display correct title on the homepage - using test.step() wrappers', async ({ page }) => {
+test('Should display the correct title when visiting the homepage -  - using test.step() wrappers', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -79,7 +79,7 @@ test('Should display correct title on the homepage - using test.step() wrappers'
 
 // Test #3C - test has no 'test.step' or 'allure.step' wrappers for steps
 
-test('Should display correct title on the homepage - without using step wrappers', async ({ page }) => {
+test('Should display the correct title when visiting the homepage -  - without using step wrappers', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -93,7 +93,7 @@ test('Should display correct title on the homepage - without using step wrappers
 
 // Test #4
 
-test('Should navigate to the Release notes page via the sidebar link', async ({ page }) => {
+test('Should navigate to the Release Notes page via the sidebar', async ({ page }) => {
   await allure.description('Validates the navigation to the Release notes page via the sidebar link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -119,7 +119,7 @@ test('Should navigate to the Release notes page via the sidebar link', async ({ 
 
 // Test #5
 
-test('Should navigate to the FAQ page via the sidebar link', async ({ page }) => {
+test('Should navigate to the FAQ page via the sidebar', async ({ page }) => {
   await allure.description('Validates the navigation to the FAQ page via the sidebar link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -145,7 +145,7 @@ test('Should navigate to the FAQ page via the sidebar link', async ({ page }) =>
 
 // Test #6
 
-test('Should navigate to the Architecture page via the sidebar link', async ({ page }) => {
+test('Should navigate to the Architecture page via the sidebar', async ({ page }) => {
   await allure.description('Validates the navigation to the Architecture page via the sidebar link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -171,7 +171,7 @@ test('Should navigate to the Architecture page via the sidebar link', async ({ p
 
 // Test #7
 
-test.skip('Should navigate to the Features page via the sidebar link', async ({ page }) => {
+test.skip('Should navigate to the Features page via the sidebar (intentionally skipped)', async ({ page }) => {
   await allure.description('Validates the navigation to the Features page via the sidebar link /nThis should be intentionally skipped as the Features section is under development');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -197,7 +197,7 @@ test.skip('Should navigate to the Features page via the sidebar link', async ({ 
 
 // Test #8
 
-test('Should fail when navigating to the Overview page via the sidebar link', async ({ page }) => {
+test('Should navigate to the Overview page via the sidebar (intentionally failed)', async ({ page }) => {
   await allure.description('Validates the navigation to the Overview page via the sidebar link /nThis should be intentionally failed as link URL is not correct');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -255,8 +255,8 @@ test('Should navigate to the Install page via the "to deploy Allure TestOps" lin
 
 // Test #10
 
-test('Should fail when navigating to the Terms and concepts page via the "terms and concepts of Allure TestOps" link', async ({ page }) => {
-  await allure.description('Validates the navigation to the Terms and concepts page via the "terms and concepts of Allure TestOps" link /nThis should be intentionally failed as link text is not correct');
+test('Should navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link (intentionally failed)', async ({ page }) => {
+  await allure.description('Validates the navigation to the Terms and Concepts page via the "terms and concepts of Allure TestOps" link /nThis should be intentionally failed as link text is not correct');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sections');
@@ -287,7 +287,7 @@ test('Should fail when navigating to the Terms and concepts page via the "terms 
 
 // Test #11
 
-test('Should display the sidebar and the Getting started section', async ({ page }) => {
+test('Should display the sidebar and Getting Started section when visiting the homepage', async ({ page }) => {
   await allure.description('Validates that the sidebar and the Getting started section are visible');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -329,7 +329,7 @@ test('Should display the sidebar and the Getting started section', async ({ page
 
 // Test #12
 
-test('Should fail when searching documentation using Ctrl+K shortcut', async ({ page }) => {
+test('Should search documentation via Ctrl+K shortcut (intentionally failed)', async ({ page }) => {
   await allure.description('Validates search via Ctrl+K shortcut in Allure TestOps documentation /nThis should be intentionally failed as search via Ctrl+K shortcut is not available');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Search');
