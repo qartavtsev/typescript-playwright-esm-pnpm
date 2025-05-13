@@ -295,3 +295,28 @@ test.skip('Should be skipped as feature section under development', async ({ pag
   await allure.story('Skipped Feature Section');
   await allure.tags('Skipped');
 });
+
+
+// Test #12
+
+test.flaky('Should randomly pass or fail to simulate flakiness1', async ({ page }) => {
+  await allure.description('Randomly passes or fails based on a generated number to simulate flaky behavior');
+  await allure.epic('Allure TestOps Documentation');
+  await allure.feature('Stability');
+  await allure.story('Flaky Behavior');
+  await allure.tags('Flaky');
+
+  await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
+    await page.goto('https://docs.qameta.io/allure-testops/');
+  });
+
+  await allure.step('Generate a random number and assert it’s > 0.3', async () => {
+    const value = Math.random();
+    await expect(value).toBeGreaterThan(0.3);
+  });
+
+  await allure.step('Log whether the test passes or fails', async () => {
+    const result = Math.random() < 0.5 ? 'PASS' : 'FAIL';
+    console.log(`Test result: ${result}`);
+  });
+});
