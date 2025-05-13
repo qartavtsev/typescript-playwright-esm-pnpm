@@ -97,8 +97,8 @@ test('Should navigate to the Release Notes page via the sidebar', async ({ page 
   await allure.description('Verifies that the user can navigate to the Release Notes page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Section', 'Navigation', 'UI');
+  await allure.story('Sidebar');
+  await allure.tags('Sidebar', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -123,8 +123,8 @@ test('Should navigate to the FAQ page via the sidebar', async ({ page }) => {
   await allure.description('Verifies that the user can navigate to the FAQ page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Section', 'Navigation', 'UI');
+  await allure.story('Sidebar');
+  await allure.tags('Sidebar', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -149,8 +149,8 @@ test('Should navigate to the Architecture page via the sidebar', async ({ page }
   await allure.description('Verifies that the user can navigate to the Architecture page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Section', 'Navigation', 'UI');
+  await allure.story('Sidebar');
+  await allure.tags('Sidebar', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -175,8 +175,8 @@ test.skip('Should navigate to the Features page via the sidebar (intentionally s
   await allure.description('Verifies that the user can navigate to the Features page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Section', 'Navigation', 'UI');
+  await allure.story('Sidebar');
+  await allure.tags('Sidebar', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -201,8 +201,8 @@ test('Should navigate to the Overview page via the sidebar (intentionally failed
   await allure.description('Verifies that the user can navigate to the Overview page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Error', 'Section', 'Navigation', 'UI');
+  await allure.story('Sidebar');
+  await allure.tags('Error', 'Sidebar', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
     await page.goto('https://docs.qameta.io/allure-testops/');
@@ -222,70 +222,6 @@ test('Should navigate to the Overview page via the sidebar (intentionally failed
 });
 
 // Test #9
-
-test('Should navigate to the Install page via the link', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Install page via the "to deploy Allure TestOps" link');
-  await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Section', 'Navigation', 'UI');
-
-  await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
-    await page.goto('https://docs.qameta.io/allure-testops/');
-  });
-
-  await allure.step('Locate the "to deploy Allure TestOps" link', async () => {
-    const deployLink = page.locator('a', { hasText: 'to deploy Allure TestOps' });
-    await expect(deployLink).toBeVisible();
-  });
-
-  await allure.step('Click the "to deploy Allure TestOps" link', async () => {
-    const installLink = page.locator('a', { hasText: 'to deploy Allure TestOps' });
-    await installLink.click();
-  });
-
-  await allure.step('Verify that the URL includes "install"', async () => {
-    await expect(page).toHaveURL(/.*install/);
-  });
-
-  await allure.step('Verify that the page header is "Install Allure TestOps"', async () => {
-    await expect(page.locator('h1')).toContainText('Install Allure TestOps');
-  });
-});
-
-// Test #10
-
-test('Should navigate to the Terms and Concepts page via the link (intentionally failed)', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
-  await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Navigation');
-  await allure.story('Sections');
-  await allure.tags('Error', 'Section', 'Navigation', 'UI');
-
-  await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
-    await page.goto('https://docs.qameta.io/allure-testops/');
-  });
-
-  await allure.step('Locate the "terms and concepts of Allure TestOps" link', async () => {
-    const deployLink = page.locator('a', { hasText: 'terms and concepts of Allure TestOps' });
-    await expect(deployLink).toBeVisible();
-  });
-
-  await allure.step('Click the "terms and concepts of Allure TestOps" link', async () => {
-    const installLink = page.locator('a', { hasText: 'intentionally-incorrect-text' });
-    await installLink.click();
-  });
-
-  await allure.step('Verify that the URL includes "terms-concepts"', async () => {
-    await expect(page).toHaveURL(/.*terms-concepts/);
-  });
-
-  await allure.step('Verify that the page header is "Terms and concepts"', async () => {
-    await expect(page.locator('h1')).toContainText('Terms and concepts');
-  });
-});
-
-// Test #11
 
 test('Should display the sidebar and Getting Started section when visiting the homepage', async ({ page }) => {
   await allure.description('Verifies that the sidebar and the Getting Started section are visible on the homepage');
@@ -324,6 +260,70 @@ test('Should display the sidebar and Getting Started section when visiting the h
 
   await allure.step('Verify that the sidebar contains "Work with test results"', async () => {
     await expect(page.locator('nav')).toContainText('Work with test results');
+  });
+});
+
+// Test #10
+
+test('Should navigate to the Install page via the link', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the Install page via the "to deploy Allure TestOps" link');
+  await allure.epic('Allure TestOps Documentation');
+  await allure.feature('Navigation');
+  await allure.story('Link');
+  await allure.tags('Link', 'Navigation', 'UI');
+
+  await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
+    await page.goto('https://docs.qameta.io/allure-testops/');
+  });
+
+  await allure.step('Locate the "to deploy Allure TestOps" link', async () => {
+    const deployLink = page.locator('a', { hasText: 'to deploy Allure TestOps' });
+    await expect(deployLink).toBeVisible();
+  });
+
+  await allure.step('Click the "to deploy Allure TestOps" link', async () => {
+    const installLink = page.locator('a', { hasText: 'to deploy Allure TestOps' });
+    await installLink.click();
+  });
+
+  await allure.step('Verify that the URL includes "install"', async () => {
+    await expect(page).toHaveURL(/.*install/);
+  });
+
+  await allure.step('Verify that the page header is "Install Allure TestOps"', async () => {
+    await expect(page.locator('h1')).toContainText('Install Allure TestOps');
+  });
+});
+
+// Test #11
+
+test('Should navigate to the Terms and Concepts page via the link (intentionally failed)', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
+  await allure.epic('Allure TestOps Documentation');
+  await allure.feature('Navigation');
+  await allure.story('Link');
+  await allure.tags('Error', 'Link', 'Navigation', 'UI');
+
+  await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
+    await page.goto('https://docs.qameta.io/allure-testops/');
+  });
+
+  await allure.step('Locate the "terms and concepts of Allure TestOps" link', async () => {
+    const deployLink = page.locator('a', { hasText: 'terms and concepts of Allure TestOps' });
+    await expect(deployLink).toBeVisible();
+  });
+
+  await allure.step('Click the "terms and concepts of Allure TestOps" link', async () => {
+    const installLink = page.locator('a', { hasText: 'intentionally-incorrect-text' });
+    await installLink.click();
+  });
+
+  await allure.step('Verify that the URL includes "terms-concepts"', async () => {
+    await expect(page).toHaveURL(/.*terms-concepts/);
+  });
+
+  await allure.step('Verify that the page header is "Terms and concepts"', async () => {
+    await expect(page.locator('h1')).toContainText('Terms and concepts');
   });
 });
 
