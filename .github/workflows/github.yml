@@ -1,4 +1,4 @@
-name: ATO
+name: ato
 
 # Pipeline execution rules
 on:
