@@ -98,43 +98,18 @@ jobs:
       - uses: actions/checkout@v3
         # Checkout the code from the repository
 
-      - name: ⚙️ Enable and configure the package manager with pnpm and Playwright browser dependencies
+      - name: Enable and configure the package manager with pnpm and Playwright browser dependencies
         run: |
           corepack enable
           corepack prepare pnpm@9.15.9 --activate
           pnpm install
-          sudo apt-get update
-          sudo apt-get install -y \
-            libgtk-3-0 \
-            libxss1 \
-            libasound2-dev \
-            libnss3 \
-            libxshmfence1 \
-            libxcomposite1 \
-            libxrandr2 \
-            libxdamage1 \
-            libgbm1 \
-            libpango-1.0-0 \
-            libpangocairo-1.0-0 \
-            libcairo2 \
-            libatk-bridge2.0-0 \
-            libatspi2.0-0 \
-            libdrm2 \
-            libegl1 \
-            libopus0 \
-            libvpx-dev \
-            libwoff1 \
-            libevent-2.1-7 \
-            libgstreamer-plugins-base1.0-0 \
-            libgstreamer1.0-0
-          npx playwright install
+          npx playwright install --with-deps
         # Enable corepack to manage package managers (e.g., pnpm)
         # Install and activate a specific pnpm version
         # Install dependencies
-        # Install system dependencies required by Playwright browsers
         # Install Playwright browser dependencies
 
-      - name: ⬇️ Install and configure allurectl using GitHub Actions
+      - name: Install and configure allurectl using GitHub Actions
         uses: allure-framework/setup-allurectl@v1
         with:
           allure-endpoint: ${{ env.ALLURE_ENDPOINT }}
@@ -142,7 +117,7 @@ jobs:
           allure-project-id: ${{ env.ALLURE_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: ▶️ Run tests
+      - name: Run tests
         env:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         # Set the full Allure TestOps launch name (with timestamp)
