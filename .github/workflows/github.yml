@@ -12,10 +12,10 @@ on:
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME - service parameter, leave blank"
         required: false
-      #BRANCH:
-      #  description: "Specify Git branch name"
-      #  required: false
-      #  default: ""                                                     # Default Git branch name
+      BRANCH:
+        description: "Specify Git branch name"
+        required: false
+        default: ""                                                     # Default Git branch name
       # BROWSER configuration is defined in playwright.config.ts
       #
       # BROWSER: 
@@ -64,7 +64,7 @@ env:
   ALLURE_RESULTS: "./allure-results"                                                            # Directory where test result files will be stored
   ALLURE_TOKEN: ${{ secrets.ALLURE_TOKEN }}                                                     # Authentication token for Allure TestOps (secured environment variable)
   ALLURE_LAUNCH_NAME_WITHOUT_TIME: "TypeScript/Playwright - #${{ github.run_number }}"          # Base Allure TestOps launch name (without timestamp)
-  # BRANCH: ${{ github.event.inputs.BRANCH }}                                                              # Git branch name specified for test execution
+  BRANCH: ${{ github.event.inputs.BRANCH }}                                                              # Git branch name specified for test execution
   # BROWSER: ${{ github.event.inputs.BROWSER }}                                                                 # Browser specified for test execution
   HOST: ${{ github.event.inputs.HOST }}                                                                     # Environment host specified for test execution
   # OS: ${{ github.event.inputs.OS }}                                                                          # Operating system specified for test execution
@@ -119,7 +119,5 @@ jobs:
           ALLURE_LAUNCH_NAME: "${{ env.ALLURE_LAUNCH_NAME_WITHOUT_TIME }} - ${{ needs.timestamp.outputs.parsed_timestamp }}"
         # Set the full Allure TestOps launch name (with timestamp)
         run: |
-        #  allurectl watch --help
-        # Display help for allurectl watch command
           allurectl watch pnpm test
         # Execute tests and upload test results to Allure TestOps
