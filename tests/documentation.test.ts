@@ -269,7 +269,7 @@ test('Should navigate to the Install page via the link', async ({ page }) => {
   await allure.description('Verifies that the user can navigate to the Install page via the "to deploy Allure TestOps" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Link');
+  await allure.story('Links');
   await allure.tags('Link', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -301,7 +301,7 @@ test('Should navigate to the Terms and Concepts page via the link (intentionally
   await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
-  await allure.story('Link');
+  await allure.story('Links');
   await allure.tags('Error', 'Link', 'Navigation', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
