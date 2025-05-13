@@ -9,7 +9,7 @@ import { allure } from 'allure-playwright';
 test('Should display correct title on the documentation homepage - using allure.step() wrappers', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Content Validation');
+  await allure.feature('Content');
   await allure.story('Page Title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
@@ -27,7 +27,7 @@ test('Should display correct title on the documentation homepage - using allure.
 test('Should display correct title on the documentation homepage - using test.step() wrappers', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Content Validation');
+  await allure.feature('Content');
   await allure.story('Page Title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
@@ -45,7 +45,7 @@ test('Should display correct title on the documentation homepage - using test.st
 test('Should display correct title on the documentation homepage - without using step wrappers', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Content Validation');
+  await allure.feature('Content');
   await allure.story('Page Title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
@@ -59,7 +59,7 @@ test('Should display correct title on the documentation homepage - without using
 test('Should display correct header on the documentation homepage', async ({ page }) => {
   await allure.description('Ensures the documentation homepage has the correct main heading');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('Content Validation');
+  await allure.feature('Content');
   await allure.story('Page Header');
   await allure.tags('Homepage', 'UI', 'Validation');
 
@@ -107,7 +107,7 @@ test('Should navigate to the Overview page when the link is clicked', async ({ p
 test('Should display the sidebar and open Getting Started section', async ({ page }) => {
   await allure.description('Verifies that the sidebar is visible and that the "Getting Started" section can be opened');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('UI');
+  await allure.feature('Navigation');
   await allure.story('Sidebar');
   await allure.tags('Navigation', 'Sidebar', 'UI');
 
@@ -165,7 +165,7 @@ test('Should open Install page via "to deploy Allure TestOps" link', async ({ pa
 test('Should display the Allure TestOps logo on the homepage', async ({ page }) => {
   await allure.description('Ensures that the Allure TestOps logo is displayed on the homepage');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('UI');
+  await allure.feature('Content');
   await allure.story('Logo');
   await allure.tags('Logo', 'UI', 'Visibility');
 
@@ -214,8 +214,8 @@ test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
 test('Should fail due to an intentionally incorrect URL expectation', async ({ page }) => {
   await allure.description('Tests navigation to the Overview page and verifies an incorrect expected URL to simulate a failure');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('URL Validation');
-  await allure.story('Overview URL mismatch');
+  await allure.feature('Content');
+  await allure.story('URL Mismatch');
   await allure.tags('Error', 'URL');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
