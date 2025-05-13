@@ -3,7 +3,7 @@ name: Run tests
 # Pipeline execution rules
 on:
   # schedule:                        # Run the pipeline when triggered by a scheduled event
-  #   - cron: '0 0 */3 * *'          # Run the pipeline every 3rd day at midnight UTC
+  #   - cron: '0 0 * * *'            # Run the pipeline every day at midnight UTC
   workflow_dispatch:                 # Run the pipeline when triggered manually from the web UI
     inputs:
       ALLURE_JOB_RUN_ID:
