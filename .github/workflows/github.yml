@@ -98,14 +98,14 @@ jobs:
       - uses: actions/checkout@v3
         # Checkout the code from the repository
 
-      - name: Enable and configure the package manager with pnpm and Playwright browser dependencies
+      - name: Install and configure pnpm and Playwright
         run: |
           corepack enable
           pnpm install
           npx playwright install --with-deps
         # Enable corepack to manage package managers (e.g., pnpm)
-        # Install dependencies
-        # Install Playwright browser dependencies
+        # Install project dependencies using pnpm
+        # Install Playwright and required browser dependencies
 
       - name: Install and configure allurectl using GitHub Actions
         uses: allure-framework/setup-allurectl@v1
