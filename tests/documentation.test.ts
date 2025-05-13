@@ -61,7 +61,7 @@ test('Should display the correct title when visiting the homepage - using allure
 
 // Test #3B - test uses 'test.step' wrappers for steps
 
-test('Should display the correct title when visiting the homepage -  - using test.step() wrappers', async ({ page }) => {
+test('Should display the correct title when visiting the homepage - using test.step() wrappers', async ({ page }) => {
   await allure.description('Verifies that the page title includes "Allure TestOps" when visiting the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -79,7 +79,7 @@ test('Should display the correct title when visiting the homepage -  - using tes
 
 // Test #3C - test has no 'test.step' or 'allure.step' wrappers for steps
 
-test('Should display the correct title when visiting the homepage -  - without using step wrappers', async ({ page }) => {
+test('Should display the correct title when visiting the homepage - without using step wrappers', async ({ page }) => {
   await allure.description('Verifies that the page title includes "Allure TestOps" when visiting the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content');
@@ -223,7 +223,7 @@ test('Should navigate to the Overview page via the sidebar (intentionally failed
 
 // Test #9
 
-test('Should navigate to the Install page via the "to deploy Allure TestOps" link', async ({ page }) => {
+test('Should navigate to the Install page via the link', async ({ page }) => {
   await allure.description('Verifies that the user can navigate to the Install page via the "to deploy Allure TestOps" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -255,7 +255,7 @@ test('Should navigate to the Install page via the "to deploy Allure TestOps" lin
 
 // Test #10
 
-test('Should navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOps" link (intentionally failed)', async ({ page }) => {
+test('Should navigate to the Terms and Concepts page via the link (intentionally failed)', async ({ page }) => {
   await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
