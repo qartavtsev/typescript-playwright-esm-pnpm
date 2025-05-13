@@ -6,11 +6,11 @@ import { allure } from 'allure-playwright';
 
 // Test #1A - test uses 'allure.step' wrappers for steps
 
-test('Should display correct title and header on the documentation homepage - using allure.step() wrappers', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct title and main heading');
+test('Should display correct title on the documentation homepage - using allure.step() wrappers', async ({ page }) => {
+  await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page title and header');
+  await allure.story('Page title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -20,19 +20,15 @@ test('Should display correct title and header on the documentation homepage - us
   await allure.step('Verify that the page title includes "Allure TestOps"', async () => {
     await expect(page).toHaveTitle(/Allure TestOps/);
   });
-
-  await allure.step('Verify that the main header includes "Allure TestOps"', async () => {
-    await expect(page.locator('h1')).toContainText('Allure TestOps');
-  });
 });
 
 // Test #1B - test uses 'test.step' wrappers for steps
 
-test('Should display correct title and header on the documentation homepage - using test.step() wrappers', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct title and main heading');
+test('Should display correct title on the documentation homepage - using test.step() wrappers', async ({ page }) => {
+  await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page title and header');
+  await allure.story('Page title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await test.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -42,29 +38,41 @@ test('Should display correct title and header on the documentation homepage - us
   await test.step('Verify that the page title includes "Allure TestOps"', async () => {
     await expect(page).toHaveTitle(/Allure TestOps/);
   });
-
-  await test.step('Verify that the main header includes "Allure TestOps"', async () => {
-    await expect(page.locator('h1')).toContainText('Allure TestOps');
-  });
 });
 
 // Test #1C - test has no 'test.step' or 'allure.step' wrappers for steps
 
-test('Should display correct title and header on the documentation homepage - without using step wrappers', async ({ page }) => {
-  await allure.description('Ensures the documentation homepage has the correct title and main heading');
+test('Should display correct title on the documentation homepage - without using step wrappers', async ({ page }) => {
+  await allure.description('Ensures the documentation homepage has the correct title');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Content Validation');
-  await allure.story('Page title and header');
+  await allure.story('Page title');
   await allure.tags('Homepage', 'UI', 'Validation');
 
   await page.goto('https://docs.qameta.io/allure-testops/');
 
   await expect(page).toHaveTitle(/Allure TestOps/);
-
-  await expect(page.locator('h1')).toContainText('Allure TestOps');
 });
 
 // Test #2
+
+test('Should display correct header on the documentation homepage', async ({ page }) => {
+  await allure.description('Ensures the documentation homepage has the correct main heading');
+  await allure.epic('Allure TestOps Documentation');
+  await allure.feature('Content Validation');
+  await allure.story('Page header');
+  await allure.tags('Homepage', 'UI', 'Validation');
+
+  await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
+    await page.goto('https://docs.qameta.io/allure-testops/');
+  });
+
+  await allure.step('Verify that the main header includes "Allure TestOps"', async () => {
+    await expect(page.locator('h1')).toContainText('Allure TestOps');
+  });
+});
+
+// Test #3
 
 test('Should navigate to the Overview page when the link is clicked', async ({ page }) => {
   await allure.description('Validates the navigation to the Overview page via the sidebar link');
@@ -94,13 +102,13 @@ test('Should navigate to the Overview page when the link is clicked', async ({ p
   });
 });
 
-// Test #3
+// Test #4
 
 test('Should display the sidebar and open Getting Started section', async ({ page }) => {
   await allure.description('Verifies that the sidebar is visible and that the "Getting Started" section can be opened');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('UI Elements');
-  await allure.story('Sidebar and Getting Started section');
+  await allure.feature('UI');
+  await allure.story('Sidebar');
   await allure.tags('Navigation', 'Sidebar', 'UI');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -124,7 +132,7 @@ test('Should display the sidebar and open Getting Started section', async ({ pag
   });
 });
 
-// Test #4
+// Test #5
 
 test('Should open Install page via "to deploy Allure TestOps" link', async ({ page }) => {
   await allure.description('Confirms that the "To deploy Allure TestOps" link navigates to the Install page');
@@ -152,13 +160,13 @@ test('Should open Install page via "to deploy Allure TestOps" link', async ({ pa
   });
 });
 
-// Test #5
+// Test #6
 
 test('Should display the Allure TestOps logo on the homepage', async ({ page }) => {
   await allure.description('Ensures that the Allure TestOps logo is displayed on the homepage');
   await allure.epic('Allure TestOps Documentation');
-  await allure.feature('UI Elements');
-  await allure.story('Logo visibility');
+  await allure.feature('UI');
+  await allure.story('Logo');
   await allure.tags('Logo', 'UI', 'Visibility');
 
   await allure.step('Navigate to the Allure TestOps documentation homepage', async () => {
@@ -171,7 +179,7 @@ test('Should display the Allure TestOps logo on the homepage', async ({ page }) 
   });
 });
 
-// Test #6
+// Test #7
 
 test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
   await allure.description('Simulates a failed attempt to use the keyboard shortcut for search, which is unavailable');
@@ -201,7 +209,7 @@ test('Should fail when attempting to use Ctrl+K search', async ({ page }) => {
   });
 });
 
-// Test #7
+// Test #8
 
 test('Should fail due to an intentionally incorrect URL expectation', async ({ page }) => {
   await allure.description('Tests navigation to the Overview page and verifies an incorrect expected URL to simulate a failure');
@@ -227,7 +235,7 @@ test('Should fail due to an intentionally incorrect URL expectation', async ({ p
   });
 });
 
-// Test #8
+// Test #9
 
 test('Should fail when clicking a non-existent navigation link', async ({ page }) => {
   await allure.description('Attempts to click a nonexistent link to simulate broken navigation');
@@ -253,7 +261,7 @@ test('Should fail when clicking a non-existent navigation link', async ({ page }
   });
 });
 
-// Test #9
+// Test #10
 
 test('Should randomly pass or fail to simulate flakiness', async ({ page }) => {
   test.flaky();
@@ -278,7 +286,7 @@ test('Should randomly pass or fail to simulate flakiness', async ({ page }) => {
   });
 });
 
-// Test #10
+// Test #11
 
 test.skip('Should be skipped as feature section under development', async ({ page }) => {
   await allure.description('This test is intentionally skipped as the feature is under development');
