@@ -297,7 +297,7 @@ test('Should navigate to the Install page via the link', async ({ page }) => {
 
 // Test #11
 
-test('Should navigate to the Terms and Concepts page via the link (intentionally failed)', async ({ page }) => {
+test('Should navigate to the Terms and Concepts page via the link (intentionally broken)', async ({ page }) => {
   await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
@@ -329,7 +329,7 @@ test('Should navigate to the Terms and Concepts page via the link (intentionally
 
 // Test #12
 
-test('Should search documentation via Ctrl+K shortcut (intentionally failed)', async ({ page }) => {
+test('Should search documentation via Ctrl+K shortcut (intentionally broken)', async ({ page }) => {
   await allure.description('Verifies search behavior using Ctrl+K shortcut');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Search');
