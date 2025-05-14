@@ -93,8 +93,8 @@ test('Should display the correct title when visiting the homepage - without usin
 
 // Test #4
 
-test('Should navigate to the Release Notes page via the sidebar', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Release Notes page via the sidebar');
+test('Should navigate to the "Release Notes" page via the sidebar', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Release Notes" page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -119,8 +119,8 @@ test('Should navigate to the Release Notes page via the sidebar', async ({ page 
 
 // Test #5
 
-test('Should navigate to the FAQ page via the sidebar', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the FAQ page via the sidebar');
+test('Should navigate to the "Frequently Asked Questions" page via the sidebar', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Frequently Asked Questions" page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -145,8 +145,8 @@ test('Should navigate to the FAQ page via the sidebar', async ({ page }) => {
 
 // Test #6
 
-test('Should navigate to the Architecture page via the sidebar', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Architecture page via the sidebar');
+test('Should navigate to the "Allure TestOps architecture" page via the sidebar', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Allure TestOps architecture" page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -171,8 +171,8 @@ test('Should navigate to the Architecture page via the sidebar', async ({ page }
 
 // Test #7
 
-test.skip('Should navigate to the Features page via the sidebar (intentionally skipped)', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Features page via the sidebar');
+test.skip('Should navigate to the "Allure TestOps features" page via the sidebar (intentionally skipped)', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Allure TestOps features" page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -197,8 +197,8 @@ test.skip('Should navigate to the Features page via the sidebar (intentionally s
 
 // Test #8
 
-test('Should navigate to the Overview page via the sidebar (intentionally failed)', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Overview page via the sidebar');
+test('Should navigate to the "Allure TestOps interface" page via the sidebar (intentionally failed)', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Allure TestOps interface" page via the sidebar');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -223,8 +223,8 @@ test('Should navigate to the Overview page via the sidebar (intentionally failed
 
 // Test #9
 
-test('Should display the sidebar and Getting Started section when visiting the homepage', async ({ page }) => {
-  await allure.description('Verifies that the sidebar and the Getting Started section are visible on the homepage');
+test('Should display the sidebar and "Getting Started" section when visiting the homepage', async ({ page }) => {
+  await allure.description('Verifies that the sidebar and the "Getting Started" section are visible on the homepage');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Sidebar');
@@ -265,8 +265,8 @@ test('Should display the sidebar and Getting Started section when visiting the h
 
 // Test #10
 
-test('Should navigate to the Install page via the link', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Install page via the "to deploy Allure TestOps" link');
+test('Should navigate to the "Install Allure TestOps" page via the link', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Install Allure TestOps" page via the "to deploy Allure TestOps" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Links');
@@ -297,8 +297,8 @@ test('Should navigate to the Install page via the link', async ({ page }) => {
 
 // Test #11
 
-test('Should navigate to the Terms and Concepts page via the link (intentionally broken)', async ({ page }) => {
-  await allure.description('Verifies that the user can navigate to the Terms and Concepts page via the "terms and concepts of Allure TestOp" link');
+test('Should navigate to the "Terms and concepts" page via the link (intentionally broken)', async ({ page }) => {
+  await allure.description('Verifies that the user can navigate to the "Terms and concepts" page via the "terms and concepts of Allure TestOp" link');
   await allure.epic('Allure TestOps Documentation');
   await allure.feature('Navigation');
   await allure.story('Links');
