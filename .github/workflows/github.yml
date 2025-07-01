@@ -84,7 +84,7 @@ jobs:
       - name: Set Timestamp
         id: set-output
         run: |
-          PARSED_TIMESTAMP=$(date -u --date="+3 hours" +"%Y.%m.%d - %H:%M:%S")
+          PARSED_TIMESTAMP=$(date -d "${{ github.event.head_commit.timestamp }} +3 hours" +"%Y.%m.%d - %H:%M:%S")
           echo "PARSED_TIMESTAMP=$PARSED_TIMESTAMP" >> $GITHUB_OUTPUT
         # Adjust the commit timestamp (+3 hours) and format it
         # Export the parsed timestamp to GitHub Actions output for reuse
